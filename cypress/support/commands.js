@@ -1,25 +1,8 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// Define all the common methods
+
+const { locator_types } = require("./helpers/locator");
+
+// Added cypress custom command for get element
+Cypress.Commands.add("getElement", (locator) => {
+   (locator.type === locator_types.CSS) ? cy.get(locator.locator).should("be.visible") : cy.xpath(locator.locator).should("be.visible");
+});

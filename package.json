@@ -7,6 +7,9 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
+    "concurrently": "^6.2.1",
+    "cypress-xpath": "^1.6.2",
+    "faker": "^5.5.3",
     "prop-types": "15.6.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
@@ -16,7 +19,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:test:run": "npx cypress run -b chrome --headless",
+    "cypress:test:open": "npx cypress open"
   },
   "main": "index.js",
   "keywords": [],

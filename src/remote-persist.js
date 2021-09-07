@@ -113,6 +113,7 @@ module.exports = class extends React.Component {
             value={this.state.fields.name}
             onChange={this.onInputChange}
             validate={val => (val ? false : 'Name Required')}
+            ariaLabel="form-control-for-name"
           />
 
           <Field
@@ -122,6 +123,7 @@ module.exports = class extends React.Component {
             value={this.state.fields.email}
             onChange={this.onInputChange}
             validate={val => (isEmail(val) ? false : 'Invalid Email')}
+            ariaLabel="form-control-for-email"
           />
 
           <Field
@@ -137,6 +139,7 @@ module.exports = class extends React.Component {
 
               return false
             }}
+            ariaLabel="form-control-for-age"
           />
 
           <Field
@@ -146,6 +149,7 @@ module.exports = class extends React.Component {
             value={this.state.fields.phoneNumber}
             onChange={this.onInputChange}
             validate={val => (isMobilePhone(val) ? false : 'Invalid Phone Number')}
+            ariaLabel="form-control-for-phone-number"
           />
 
           <Field
@@ -156,6 +160,7 @@ module.exports = class extends React.Component {
             value={this.state.fields.password}
             onChange={this.onInputChange}
             validate={val => (isStrongPassword(val) ? false : 'Weak Password')}
+            ariaLabel="form-control-for-password"
           />
 
           <Field
@@ -165,6 +170,7 @@ module.exports = class extends React.Component {
             value={this.state.fields.homepage}
             onChange={this.onInputChange}
             validate={val => (isURL(val, { require_protocol: true }) ? false : 'Invalid URL')}
+            ariaLabel="form-control-for-homepage"
           />
 
           {
@@ -198,26 +204,26 @@ module.exports = class extends React.Component {
         <h1>People</h1>
 
         <div>
-          <table class="f6 w-100 mw8 center" cellspacing="0">
+          <table className="f6 w-100 mw8 center" cellSpacing="0">
             <thead>
               <tr>
-                <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Name</th>
-                <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Email</th>
-                <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Age</th>
-                <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Phone</th>
-                <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Homepage</th>
+                <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Name</th>
+                <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Email</th>
+                <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Age</th>
+                <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Phone</th>
+                <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Homepage</th>
               </tr>
             </thead>
-            <tbody class="lh-copy">
+            <tbody className="lh-copy">
           {this.state.people.map((person, i) => {
             const {name, email, age, phoneNumber, homepage} = person
             return (
-              <tr key={email}>
-                <td class="pv3 pr3 bb b--black-20">{name}</td>
-                <td class="pv3 pr3 bb b--black-20">{email}</td>
-                <td class="pv3 pr3 bb b--black-20">{age}</td>
-                <td class="pv3 pr3 bb b--black-20"><a href={`tel:${phoneNumber}`}>{phoneNumber}</a></td>
-                <td class="pv3 pr3 bb b--black-20"><a href={homepage}>{homepage}</a></td>
+              <tr key={email}  aria-label={`col-${i}`}>
+                <td className="pv3 pr3 bb b--black-20" aria-label="name-cell">{name}</td>
+                <td className="pv3 pr3 bb b--black-20" aria-label="email-cell">{email}</td>
+                <td className="pv3 pr3 bb b--black-20" aria-label="age-cell">{age}</td>
+                <td className="pv3 pr3 bb b--black-20" aria-label="phone-number-cell"><a href={`tel:${phoneNumber}`}>{phoneNumber}</a></td>
+                <td className="pv3 pr3 bb b--black-20" aria-label="homepage-cell"><a href={homepage}>{homepage}</a></td>
               </tr>
           )})}
         </tbody>

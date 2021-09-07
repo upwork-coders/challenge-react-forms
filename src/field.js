@@ -3,6 +3,7 @@ import React from 'react';
 
 module.exports = class extends React.Component {
   static propTypes = {
+    ariaLabel: PropTypes.string,
     placeholder: PropTypes.string,
     type: PropTypes.string,
     name: PropTypes.string.isRequired,
@@ -43,8 +44,8 @@ module.exports = class extends React.Component {
 
   render() {
     return (
-      <div>
-        <label class="db fw6 lh-copy f6">
+      <div aria-label={this.props.ariaLabel}>
+        <label className="db fw6 lh-copy f6">
         {this.props.label || this.props.name}
         <input className="pa2 input-reset ba w-100"
           name={this.props.name}
@@ -55,7 +56,7 @@ module.exports = class extends React.Component {
           onBlur={this.onBlur}
         />
         </label>
-        <div className='red mt2'>{this.state.error}</div>
+        <div className='red mt2' aria-label="error-message">{this.state.error}</div>
       </div>
     );
   }

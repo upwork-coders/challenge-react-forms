@@ -13,6 +13,9 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+// Import cypress-xpath for xpath support
+import 'cypress-xpath'
+
 // Import commands.js using ES2015 syntax:
 import './commands'
 
