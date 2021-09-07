@@ -72,6 +72,8 @@ class SignupPage extends BasePage {
                 .click()
                 .should("have.value", "Saved!");
         } else {
+            cy.getElement(this.elements.signUpForm.submitButton)
+                .should("not.be.enabled");
             this.focusOutFromInputField();
         }
     }
