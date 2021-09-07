@@ -10,6 +10,5 @@
 3. Install node dependencies using `npm install` command.
 
 ### Run UI tests locally:
-1. Start react server on localhost using `npm start`.
-2. Run tests in headless mode using `npm run cypress:test:run`.
-3. Open cypress dashboard using `npm run cypress:test:open`.
+1. Run tests in headless mode using `npm run cypress:test:run`.
+2. Open cypress dashboard using `npm run cypress:test:open`.
